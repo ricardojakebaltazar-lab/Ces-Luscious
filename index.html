@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ces Luscious Foods | Sweetness for Every Occasion</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      background: #140f1f;
+      color: #f0ecff;
+      min-height: 100vh;
+    }
+
+    /* Navigation */
+    .navbar {
+      background: #1e182b;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(128, 90, 200, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f0e6ff, #c8adff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #cbbdff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #c8adff;
+      border-bottom: 2px solid #6a51c2;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-login, .btn-signup {
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      border: none;
+    }
+
+    .btn-login {
+      background: transparent;
+      border: 1px solid #6a51c2;
+      color: #c8adff;
+    }
+
+    .btn-login:hover {
+      background: #6a51c2;
+      color: white;
+    }
+
+    .btn-signup {
+      background: #6a51c2;
+      color: white;
+    }
+
+    .btn-signup:hover {
+      background: #7f65d4;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #1e182b, #161020);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #f0e6ff, #c8adff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero .tagline {
+      font-size: 1.3rem;
+      color: #c8adff;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .subtitle {
+      color: #a994e2;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      background: #6a51c2;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: 0.2s;
+    }
+
+    .cta-button:hover {
+      background: #7f65d4;
+      transform: translateY(-2px);
+    }
+
+    /* Featured Products */
+    .featured {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .featured h2 {
+      text-align: center;
+      color: #c8adff;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: #221c32;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid #3d3158;
+      transition: transform 0.2s;
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      border-color: #6a51c2;
+    }
+
+    .product-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-card h3 {
+      color: #c8adff;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card .price {
+      color: #6a51c2;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #665a8c;
+      border-top: 1px solid #2f2648;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero .tagline {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🍰 Ces Luscious Foods</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="auth-buttons">
+      <button class="btn-login" onclick="window.location.href='auth/login.html'">Log in</button>
+      <button class="btn-signup" onclick="window.location.href='auth/signup.html'">Sign-up</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Ces Luscious Foods</h1>
+    <div class="tagline">Premium Taste, Seamless Service, Affordable Joy.</div>
+    <div class="subtitle">Sweetness for every occasion — since 2019</div>
+    <a href="shop.html" class="cta-button">Order Now →</a>
+  </section>
+
+  <section class="featured" id="about">
+    <h2>Our Signature Desserts</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-icon">🍮</div>
+        <h3>Leche Flan</h3>
+        <p>Creamy caramel custard</p>
+        <div class="price">₱120</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🍰</div>
+        <h3>Ube Halaya</h3>
+        <p>Purple yam jam dessert</p>
+        <div class="price">₱150</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🍚</div>
+        <h3>Puto</h3>
+        <p>Soft steamed rice cake</p>
+        <div class="price">₱80</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🥭</div>
+        <h3>Mango Graham</h3>
+        <p>Refrigerated mango cake</p>
+        <div class="price">₱180</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured" id="contact">
+    <h2>Contact Us</h2>
+    <div style="text-align: center; background: #221c32; padding: 2rem; border-radius: 1rem;">
+      <p>📍 Bulacan, Philippines</p>
+      <p>📞 (555) 123-4567</p>
+      <p>✉️ hello@ceslusciousfoods.com</p>
+      <p>⏰ Mon-Sat: 9AM - 7PM</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Ces Luscious Foods. Sweetness for every occasion.</p>
+  </footer>
+
+  <script>
+    // Check if user is already logged in
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      const user = JSON.parse(currentUser);
+      if (user.role === 'admin') {
+        window.location.href = 'dashboard.html';
+      } else {
+        window.location.href = 'home.html';
+      }
+    }
+  </script>
+</body>
+</html>

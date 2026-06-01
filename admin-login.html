@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Quick Access</title>
+  <style>
+    body {
+      background: #140f1f;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      background: #1e182b;
+      padding: 40px;
+      border-radius: 20px;
+    }
+    button {
+      background: #6a51c2;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 60px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:hover {
+      background: #7f65d4;
+    }
+    .success {
+      background: #2a2340;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>🔐 Admin Access</h2>
+    <button onclick="loginAsAdmin()">Click Here to Login as Admin</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function loginAsAdmin() {
+      // This creates an admin account and logs you in automatically
+      
+      // 1. Create admin account
+      let users = JSON.parse(localStorage.getItem('ces_users') || '[]');
+      
+      // Remove old admin if exists
+      users = users.filter(u => u.email !== 'admin@cesluscious.com');
+      
+      // Add fresh admin
+      users.push({
+        id: 999,
+        name: 'Admin User',
+        email: 'admin@cesluscious.com',
+        address: 'Admin Office',
+        phone: '09123456789',
+        password: 'admin123',
+        role: 'admin'
+      });
+      
+      localStorage.setItem('ces_users', JSON.stringify(users));
+      
+      // 2. Auto login as admin
+      localStorage.setItem('currentUser', JSON.stringify({
+        id: 999,
+        name: 'Admin User',
+        email: 'admin@cesluscious.com',
+        role: 'admin'
+      }));
+      
+      // 3. Show success and redirect
+      document.getElementById('result').innerHTML = `
+        <div class="success">
+          ✅ Logged in as Admin!<br>
+          Redirecting to Admin Dashboard...
+        </div>
+      `;
+      
+      // 4. Go to admin dashboard
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

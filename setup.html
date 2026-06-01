@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup Admin Account</title>
+  <style>
+    body {
+      font-family: monospace;
+      background: #140f1f;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      background: #1e182b;
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+    button {
+      background: #6a51c2;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .success {
+      color: #4a9e6b;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>🔐 Admin Account Setup</h2>
+    <button onclick="createAdmin()">Create Admin Account</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function createAdmin() {
+      let users = JSON.parse(localStorage.getItem('ces_users') || '[]');
+      
+      if (users.find(u => u.email === 'admin@cesluscious.com')) {
+        document.getElementById('result').innerHTML = '<div class="success">✅ Admin already exists!<br>Email: admin@cesluscious.com<br>Password: admin123</div>';
+      } else {
+        users.push({
+          id: 999,
+          name: 'Admin User',
+          email: 'admin@cesluscious.com',
+          address: 'Admin Office, Bulacan',
+          phone: '09123456789',
+          password: 'admin123',
+          role: 'admin',
+          createdAt: new Date().toISOString()
+        });
+        localStorage.setItem('ces_users', JSON.stringify(users));
+        document.getElementById('result').innerHTML = '<div class="success">✅ Admin created!<br>📧 Email: admin@cesluscious.com<br>🔑 Password: admin123<br><br><a href="auth/login.html" style="color: #c8adff;">Click here to login →</a></div>';
+      }
+    }
+  </script>
+</body>
+</html>
